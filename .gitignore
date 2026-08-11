@@ -6,3 +6,4 @@ dist/
 server/.mongo-data/
 .claude/
 .env.local
+*.log
