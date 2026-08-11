@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink text-mist font-body antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    @apply bg-saffron text-ink;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-ink;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-light rounded-full border-2 border-ink;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-saffron;
+  }
+  input,
+  textarea,
+  select {
+    @apply bg-transparent;
+  }
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+@layer components {
+  /* دکمهٔ اصلی — طلایی پررنگ */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-saffron px-8 py-3.5 text-sm font-bold text-ink transition-all duration-300 hover:bg-saffron-light hover:shadow-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-saffron focus-visible:ring-offset-2 focus-visible:ring-offset-ink disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  /* دکمهٔ ظریف — حاشیه‌ای روی تیره */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-mist/25 px-8 py-3.5 text-sm font-medium text-mist transition-all duration-300 hover:border-saffron hover:text-saffron focus:outline-none focus-visible:ring-2 focus-visible:ring-saffron/60 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-soil/20 px-8 py-3.5 text-sm font-medium text-soil transition-all duration-300 hover:border-soil/60 hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-8 py-3.5 text-sm font-bold text-mist transition-all duration-300 hover:bg-ink-light focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* فیلدهای فرم */
+  .field {
+    @apply w-full rounded-xl border border-soil/15 bg-white/60 px-4 py-3 text-sm text-soil placeholder-soil/35 transition-colors focus:border-saffron-dark focus:outline-none focus:ring-2 focus:ring-saffron/30;
+  }
+  .field-dark {
+    @apply w-full rounded-xl border border-mist/15 bg-white/5 px-4 py-3 text-sm text-mist placeholder-mist/30 transition-colors focus:border-saffron focus:outline-none focus:ring-2 focus:ring-saffron/25;
+  }
+
+  /* سرصفحهٔ بخش‌ها */
+  .eyebrow {
+    @apply flex items-center gap-3 text-xs font-medium tracking-widest2 text-saffron;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-8 bg-saffron/60;
+  }
+  .section-title {
+    @apply font-display text-3xl leading-snug text-mist sm:text-4xl lg:text-5xl;
+  }
+
+  /* پوست محصول */
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card;
+  }
+
+  /* مهر */
+  .seal-ring {
+    @apply rounded-full border-2 border-dashed border-saffron/70;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .clip-arch {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

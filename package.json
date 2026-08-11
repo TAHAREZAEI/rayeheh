@@ -1,0 +1,17 @@
+{
+  "name": "rayeheh",
+  "version": "1.0.0",
+  "private": true,
+  "description": "رایحه — فروشگاه آنلاین لوکس عطر و ادکلن | RAYEHEH Luxury Perfume House",
+  "scripts": {
+    "dev": "concurrently -n server,client -c yellow,cyan \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "seed": "npm run seed --prefix server",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
